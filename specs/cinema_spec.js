@@ -29,25 +29,37 @@ describe('Cinema', function () {
   });
 
   it('should be able to get a list of film titles',function(){
-      const actual = cinema.returnTitles(films)
+      const actual = cinema.returnTitles()
       assert.deepStrictEqual(actual, ['Moonlight','Blade Runner 2049','Dunkirk','Black Panther','T2 Trainspotting'])
   });
 
   it('should be able to find a film by title', function(){
     const film_to_search = "Dunkirk";
-    const actual = cinema.findFilm(films, film_to_search);
+    const actual = cinema.findFilm(film_to_search);
     assert.deepStrictEqual(actual, dunkirk)
   });
   
   it('should be able to filter films by genre',function(){
     const genre = 'drama';
-    const actual = cinema.filterGenres(films, genre);
-    assert.deepStrictEqual(actual, [moonlight , trainspotting])
+    const actual = cinema.filterGenres(genre);
+    assert.deepStrictEqual(actual, [moonlight, trainspotting])
   });
   
-  it('should be able to check whether there are some films from a particular year');
-  it('should be able to check whether there are no films from a particular year');
+  it('should be able to check whether there are some films from a particular year', function(){
+    const film_year = 2017;
+    const actual = cinema.confirmYear(film_year);
+    assert.deepStrictEqual(actual, true)
+  });
+
+  it('should be able to check whether there are no films from a particular year',function(){
+    const film_year = 2013;
+    const actual = cinema.confirmYearNone(film_year);
+    assert.deepStrictEqual(actual, true);
+  });
+
   it('should be able to check whether all films are over a particular length');
   it('should be able to calculate total running time of all films');
 
 });
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
