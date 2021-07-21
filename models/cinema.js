@@ -39,6 +39,16 @@ Cinema.prototype.confirmYearNone = function(year){
   return are_there_films_from_that_year_true_is_no_false_is_yes;
 }
 
+Cinema.prototype.confirmMinFilmLength = function(length){
+  const min_film_length = this.films.every(film => film.length >= length);
+  return min_film_length;
+}
 
+Cinema.prototype.sumFilmTimes = function(){
+  let sumFilms = this.films.reduce((totalMinutes, film)=>{
+    return totalMinutes + film.length;
+  }, 0);
+  return sumFilms;
+}
 module.exports = Cinema;
 

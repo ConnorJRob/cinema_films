@@ -57,9 +57,15 @@ describe('Cinema', function () {
     assert.deepStrictEqual(actual, true);
   });
 
-  it('should be able to check whether all films are over a particular length');
-  it('should be able to calculate total running time of all films');
+  it('should be able to check whether all films are over a particular length', function(){
+    const film_length = 60;
+    const actual = cinema.confirmMinFilmLength(film_length);
+    assert.deepStrictEqual(actual, true)
+  });
+
+  it('should be able to calculate total running time of all films',function(){
+      const actual = cinema.sumFilmTimes();
+      assert.deepStrictEqual(actual, 622)
+  });
 
 });
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every
